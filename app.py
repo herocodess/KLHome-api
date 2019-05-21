@@ -95,4 +95,4 @@ def action():
     return jsonify({'data': data, 'message': message}), 201
 
 if __name__ == '__main__':
-    app.run(host='https://home-automation-rest-api.herokuapp.com/togglelight', port=5000, debug=True)    
+    app.run()    
