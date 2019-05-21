@@ -21,8 +21,8 @@ app = Flask(__name__)
 # db = client.appliances
 
 # app.config['MONGO_URI'] = "mongodb://192.168.137.52:27017/appliances"
-myClient = pymongo.MongoClient("mongodb://172.16.11.162:27017/")
-myDb = myClient["appliances"]/
+myClient = pymongo.MongoClient("mongodb+srv://hero:<herodion12>@cluster0-5yx0z.mongodb.net/")
+myDb = myClient["appliances"]
 myCol = myDb["toggle"]
 # mongo = PyMongo(app)
 # app.json_encoder = JSONEncoder
@@ -95,4 +95,4 @@ def action():
     return jsonify({'data': data, 'message': message}), 201
 
 if __name__ == '__main__':
-    app.run(host='172.16.11.161', port=5000, debug=True)    
+    app.run(host='https://home-automation-rest-api.herokuapp.com/togglelight', port=5000, debug=True)    
