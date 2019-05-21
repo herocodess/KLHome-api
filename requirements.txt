@@ -2,7 +2,5 @@ Flask
 pymongo
 RPi.GPIO
 datetime
-json
-bson
 flask
 uwsgi
