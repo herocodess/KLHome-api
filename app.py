@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 # app.config['MONGO_URI'] = "mongodb://192.168.137.52:27017/appliances"
 myClient = pymongo.MongoClient("mongodb://172.16.11.162:27017/")
-myDb = myClient["appliances"]
+myDb = myClient["appliances"]/
 myCol = myDb["toggle"]
 # mongo = PyMongo(app)
 # app.json_encoder = JSONEncoder
