@@ -1,5 +1,4 @@
 import pymongo
-from flask_pymongo import PyMongo
 from flask import Flask, request, jsonify
 import RPi.GPIO as GPIO
 import datetime
