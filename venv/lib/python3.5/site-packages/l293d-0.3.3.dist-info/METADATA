@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: l293d
+Version: 0.3.3
+Summary: A Python module to drive motors using an L293D via Raspberry Pi GPIO
+Home-page: https://github.com/jamesevickery/l293d
+Author: James Vickery
+Author-email: dev@jamesvickery.net
+License: MIT
+Download-URL: https://github.com/jamesevickery/l293d/archive/v0.3.3.tar.gz
+Project-URL: Bug Reports, https://github.com/jamesevickery/l293d/issues
+Project-URL: Source, https://github.com/jamesevickery/l293d
+Keywords: raspberry,pi,gpio,l293d,chip,motor,driver
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.2.*, <4
+Description-Content-Type: text/markdown
+
+# [L293D driver](https://jmsv.github.io/l293d/)
+*Python module to drive DC motors from a Raspberry Pi using the L293D chip*
+
+[![PyPI version](https://badge.fury.io/py/l293d.svg)](https://badge.fury.io/py/l293d)
+[![Python versions](https://img.shields.io/pypi/pyversions/l293d.svg)](https://pypi.python.org/pypi/l293d)
+[![Build Status](https://travis-ci.org/jmsv/l293d.svg?branch=master)](https://travis-ci.org/jmsv/l293d)
+[![Documentation Status](https://readthedocs.org/projects/l293d/badge/?version=latest)](http://l293d.readthedocs.io/en/latest/?badge=latest)
+[![Requirements Status](https://requires.io/github/jmsv/l293d/requirements.svg?branch=master)](https://requires.io/github/jmsv/l293d/requirements/?branch=master)
+[![Contributors](https://img.shields.io/github/contributors/jmsv/l293d.svg)](https://github.com/jmsv/l293d/graphs/contributors)
+[![Wheel Support](https://img.shields.io/pypi/wheel/l293d.svg)](https://pypi.python.org/pypi/l293d)
+
+---
+
+- This README was formerly used as the complete l293d documentation -
+it has now been moved to [l293d.readthedocs.io](http://l293d.readthedocs.io/en/latest/)
+
+- If you have any ideas, suggestions or problems, please
+[open an issue](https://github.com/jmsv/l293d/issues/new).
+
+

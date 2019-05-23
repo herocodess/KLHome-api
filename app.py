@@ -20,9 +20,10 @@ app = Flask(__name__)
 # db = client.appliances
 
 # app.config['MONGO_URI'] = "mongodb://192.168.137.52:27017/appliances"
-myClient = pymongo.MongoClient("mongodb+srv://hero:<herodion12>@cluster0-5yx0z.mongodb.net/")
-myDb = myClient["appliances"]
-myCol = myDb["toggle"]
+# mongodb+srv://hero:<herodion12>@cluster0-5yx0z.mongodb.net/
+# myClient = pymongo.MongoClient("mongodb://192.168.137.52:27017/")
+# myDb = myClient["appliances"]
+# myCol = myDb["toggle"]
 # mongo = PyMongo(app)
 # app.json_encoder = JSONEncoder
 
@@ -33,8 +34,21 @@ pins = {
         'pin_no' : 23,
         'name':'GPIO 23',
         'state': GPIO.HIGH
+    },
+    21: {
+        'pin_no': 21,
+        'name': 'GPIO 24',
+        'state': GPIO.HIGH
     }
 }
+
+# pinFan = {
+#     24: {
+#         'pin_no': 24,
+#         'name': 'GPIO 24',
+#         'state': GPIO.HIGH
+#     }
+# }
 
 # set each pin as an output and make it low
 for pin in pins:
@@ -54,6 +68,24 @@ def main():
     return jsonify({'message': templateData})
 
     #the function below is executed when someone requests a URL with the pin number and action in it
+
+@app.route('/toggleFan', methods=['POST'])
+def actionF():
+    request_data = request.get_json()
+    
+    for i in request_data:
+        changePin = i['changePin']
+        action = i['action']
+    
+    deviceName = pins[changePin]['name']
+
+    if action == "off":
+        GPIO.output(changePin, GPIO.LOW)
+        #save the status message to be passed into the template
+        message = "Turned " + deviceName + " off."
+    if action == "on":
+        GPIO.output(changePin, GPIO.HIGH)
+        message = "Turned "  + deviceName + "on."   
 
 @app.route('/togglelight', methods=['POST'])
 def action():
@@ -80,18 +112,19 @@ def action():
         GPIO.output(changePin, GPIO.LOW)
         message = "Turned " + deviceName + " on."
     #for each pin, read the pin state and store it into a dictionary
-    pins[23]['state'] = GPIO.input(23)
+    for p in pins:
+        pins[p]['state'] = GPIO.input(p)
 
     #along with the pin dictionary, put the message into the template data dictionary
-    nTemplateData = pins[23]    
+    nTemplateData = pins[p]    
     #mongo.db.toggle.insert_one(nTemplateData)
     #myCol.insert_one(nTemplateData)
 
     data = json.dumps(nTemplateData, default=json_util.default)
-    d = json.loads(data)
-    myCol.insert(d)
+    # d = json.loads(data)
+    # myCol.insert(d)
     # mongo.db.toggle.insert_one(d)
     return jsonify({'data': data, 'message': message}), 201
 
 if __name__ == '__main__':
-    app.run()    
+    app.run(host="192.168.32.102", debug=True, port=5000)    
