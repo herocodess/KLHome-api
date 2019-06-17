@@ -19,11 +19,13 @@ app = Flask(__name__)
 # client = MongoClient('192.168.137.52:27017')
 # db = client.appliances
 
-# app.config['MONGO_URI'] = "mongodb://192.168.137.52:27017/appliances"
+app.config['MONGO_URI'] = "mongodb://192.168.137.52:27017/appliances"
 # mongodb+srv://hero:<herodion12>@cluster0-5yx0z.mongodb.net/
 # myClient = pymongo.MongoClient("mongodb://192.168.137.52:27017/")
 # myDb = myClient["appliances"]
 # myCol = myDb["toggle"]
+
+
 # mongo = PyMongo(app)
 # app.json_encoder = JSONEncoder
 
@@ -41,15 +43,6 @@ pins = {
         'state': GPIO.HIGH
     }
 }
-
-# pinFan = {
-#     24: {
-#         'pin_no': 24,
-#         'name': 'GPIO 24',
-#         'state': GPIO.HIGH
-#     }
-# }
-
 # set each pin as an output and make it low
 for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
@@ -122,7 +115,7 @@ def action():
 
     data = json.dumps(nTemplateData, default=json_util.default)
     # d = json.loads(data)
-    # myCol.insert(d)
+    # # myCol.insert(d)
     # mongo.db.toggle.insert_one(d)
     return jsonify({'data': data, 'message': message}), 201
 
